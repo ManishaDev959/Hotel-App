@@ -1,64 +1,26 @@
-<div class="card shadow p-4" style="max-width: 800px; margin: auto; border-radius: 12px;">
-
-  <h3 class="fw-bold mb-4 text-center">Search Available Hotels</h3>
-
-  <form>
-
-    <div class="row g-3">
-
-      <div class="col-md-4">
-        <label class="form-label fw-semibold">From Date</label>
-        <input 
-          type="date" 
-          class="form-control form-control-lg"
-        />
-      </div>
-
-      <div class="col-md-4">
-        <label class="form-label fw-semibold">To Date</label>
-        <input 
-          type="date" 
-          class="form-control form-control-lg"
-        />
-      </div>
-
-    
-      <div class="col-md-4">
-        <label class="form-label fw-semibold">Guests</label>
-        <div class="row g-2">
-
-          <div class="col-6">
-            <select class="form-select form-select-lg">
-              <option value="" disabled selected>Adults</option>
-              <option>1 Adult</option>
-              <option>2 Adults</option>
-              <option>3 Adults</option>
-              <option>4 Adults</option>
-            </select>
-          </div>
-
-          <div class="col-6">
-            <select class="form-select form-select-lg">
-              <option value="" disabled selected>Children</option>
-              <option>0 Child</option>
-              <option>1 Child</option>
-              <option>2 Children</option>
-              <option>3 Children</option>
-            </select>
-          </div>
-
-        </div>
-      </div>
-
+<div class="card p-4 shadow">
+  <h3>Search Hotels</h3>
+  <div class="row g-3 mb-3">
+    <div class="col">
+      <input type="date" class="form-control" [(ngModel)]="fromDate" placeholder="From Date">
     </div>
+    <div class="col">
+      <input type="date" class="form-control" [(ngModel)]="toDate" placeholder="To Date">
+    </div>
+    <div class="col">
+      <button class="btn btn-primary w-100" (click)="searchHotels()">Search</button>
+    </div>
+  </div>
 
-    <button 
-      class="btn btn-primary btn-lg w-100 mt-4"
-      style="background-color:#003580;"
-    >
-      Search Hotels
-    </button>
-
-  </form>
-
+  <div *ngFor="let hotel of searchResults" class="card mb-3 p-3 shadow">
+    <h5>{{ hotel.hotelName }}</h5>
+    <p>{{ hotel.address }}</p>
+    <img [src]="hotel.imageUrl" height="120" class="rounded mb-2">
+    <div *ngFor="let room of hotel.rooms" class="border-top pt-2 mt-2">
+       <p>
+        {{ room.title }} | Price per day: {{ room.rentPerDay | currency:'INR':'symbol':'1.0-0' }} | Number of days: {{ room.numberOfDays }} |
+        Total: {{ room.totalCost | currency:'INR':'symbol':'1.0-0' }}
+      </p>
+    </div>
+  </div>
 </div>

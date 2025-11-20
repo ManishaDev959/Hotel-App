@@ -1,18 +1,16 @@
-<div 
-  class="layout-wrapper" 
-  style="
-    min-height: 400px;
-    background-image: url('assets/images/hotel-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  "
+<div
+  class="layout-wrapper"
+  [ngStyle]="{
+    'min-height': '400px',
+    'background-image': 'url(' + backgroundImageUrl + ')',
+    'background-size': 'cover',
+    'background-position': 'center',
+    'background-repeat': 'no-repeat'
+  }"
 >
   <div class="overlay" style="background: rgba(0, 0, 0, 0.3); min-height: inherit;">
-    
     <div class="container py-5">
       <router-outlet></router-outlet>
     </div>
-
   </div>
 </div>

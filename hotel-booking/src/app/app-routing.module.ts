@@ -6,18 +6,18 @@ import { RoomsComponent } from './pages/rooms/rooms/rooms.component';
 
 const routes: Routes = [
   {
+    path: '',
+    component: SearchRoomComponent
+  }, 
+  {
     path: 'add-edit-hotel',
     component: AddEditHotelComponent
   },
   {
-    path: 'search-room',
-    component: SearchRoomComponent
-  },
-  {
     path: 'rooms',
     component: RoomsComponent
-  }
-  
+  },
+
 ];
 
 @NgModule({

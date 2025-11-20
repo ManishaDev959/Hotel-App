@@ -10,6 +10,7 @@ import { AddEditHotelComponent } from './pages/add-edit-hotel/add-edit-hotel/add
 import { RoomsComponent } from './pages/rooms/rooms/rooms.component';
 import { SearchRoomComponent } from './pages/search-room/search-room/search-room.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

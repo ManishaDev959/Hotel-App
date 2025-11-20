@@ -1,0 +1,31 @@
+<form (ngSubmit)="addRoom()" #roomForm="ngForm">
+  <div class="mb-3">
+    <label class="form-label">Select Hotel</label>
+    <select class="form-control" [(ngModel)]="room.HotelId" name="HotelId" required>
+      <option value="" disabled selected>Select a hotel</option>
+      <option *ngFor="let hotel of hotels" [ngValue]="hotel.id">{{ hotel.hotelName }}</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Room Title</label>
+    <input type="text" class="form-control" [(ngModel)]="room.Title" name="Title" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">From Date</label>
+    <input type="date" class="form-control" [(ngModel)]="room.FromDate" name="FromDate" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">To Date</label>
+    <input type="date" class="form-control" [(ngModel)]="room.ToDate" name="ToDate" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Rent Per Day</label>
+    <input type="number" class="form-control" [(ngModel)]="room.RentPerDay" name="RentPerDay" required>
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="!roomForm.form.valid">Add Room</button>
+</form>
